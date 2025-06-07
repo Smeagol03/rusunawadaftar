@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="icon" href="./src/asset/img/Lambang_Kabupaten_Lombok_Timur.png" type="icon">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./src/output.css">
+    <link rel="stylesheet" href="./src/global.css">
+    <!-- Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav
+            class="bg-white backdrop-blur-md shadow-lg border-b border-gray-100 fixed w-full top-0 z-[100] transition-all duration-300">
+            <div class="flex justify-between items-center md:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <!-- Logo -->
+                    <a href="./admin.html" class="flex items-center space-x-3">
+                        <div class="w-9 h-9 flex items-center justify-center">
+                            <img src="./src/asset/img/Lambang_Kabupaten_Lombok_Timur.png"
+                                alt="Lambang_Kabupaten_Lombok_Timur">
+                        </div>
+                        <span class="text-sm md:text-lg font-semibold">
+                            PERKIM KAB. LOTIM
+                        </span>
+                    </a>
+                </div>
+                <div>
+                    <button id="logOut"
+                        class="bg-red-500 hover:bg-red-600 hover:shadow-md hover:scale-105 transform transition-all duration-300 px-3 py-1 rounded-full text-white">Keluar</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="flex min-h-screen pt-16">
+            <aside class="w-64 bg-white shadow-lg border-r border-gray-100">
+                <div class="h-full px-3 py-4">
+                    <div class="space-y-3">
+                        <!-- Admin Profile -->
+                        <div class="flex items-center p-2">
+                            <div>
+                                <h2 class="text-lg font-semibold">Admin</h2>
+                                <span class="text-sm text-gray-500">Administrator</span>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Menu -->
+                        <nav class="space-y-2">
+                            <a href="./admin.html"
+                                class="flex items-center px-4 py-2 text-gray-700 hover:text-white hover:bg-amber-400 rounded-lg transition-colors">
+                                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                                    </path>
+                                </svg>
+                                <span>Dashboard</span>
+                            </a>
+
+                            <a href="./penghuni.html"
+                                class="flex items-center px-4 py-2 text-gray-700 hover:text-white hover:bg-amber-400 rounded-lg transition-colors">
+                                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
+                                    </path>
+                                </svg>
+                                <span>Daftar Penghuni</span>
+                            </a>
+
+                            <a href="./pendaftar.html"
+                                class="flex items-center px-4 py-2 text-gray-700 hover:text-white hover:bg-amber-400 rounded-lg transition-colors">
+                                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                    </path>
+                                </svg>
+                                <span>Aplikasi Masuk</span>
+                            </a>
+
+                            <a href="#settings"
+                                class="flex items-center px-4 py-2 text-gray-700 hover:text-white hover:bg-amber-400 rounded-lg transition-colors">
+                                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                                    </path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                                <span>Pengaturan</span>
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="flex-1 p-8 overflow-hidden">
+                <h1 class="text-2xl font-bold mb-6">Pendaftar RUSUNAWA</h1>
+                <!-- konten taruh sini -->
+                <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                    <table class="min-w-full text-sm text-left text-gray-700 border">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="py-3 px-4 whitespace-nowrap border">No</th>
+                                <th class="py-3 px-4 whitespace-nowrap border min-w-36">Tanggal</th>
+                                <th class="py-3 px-4 whitespace-nowrap border min-w-48">Nama</th>
+                                <th class="py-3 px-4 whitespace-nowrap border">Agama</th>
+                                <th class="py-3 px-4 whitespace-nowrap border">Alamat</th>
+                                <th class="py-3 px-4 whitespace-nowrap border">Warga Negara</th>
+                                <th class="py-3 px-4 whitespace-nowrap border">Tempat Lahir</th>
+                                <th class="py-3 px-4 whitespace-nowrap border">Tanggal Lahir</th>
+                                <th class="py-3 px-4 whitespace-nowrap border">No KTP</th>
+                                <th class="py-3 px-4 whitespace-nowrap border">Status Tempat Tinggal</th>
+                                <th class="py-3 px-4 whitespace-nowrap border">Jumlah Keluarga</th>
+                                <th class="py-3 px-4 whitespace-nowrap border">Status Perkawinan</th>
+                                <th class="py-3 px-4 whitespace-nowrap border">Pekerjaan</th>
+                                <th class="py-3 px-4 whitespace-nowrap border">Penghasilan</th>
+                                <th class="py-3 px-4 whitespace-nowrap border min-w-48">Alamat Pekerjaan</th>
+                                <th class="py-3 px-4 whitespace-nowrap border">Pekerjaan Pasangan</th>
+                                <th class="py-3 px-4 whitespace-nowrap border">Penghasilan Pasangan</th>
+                                <th class="py-3 px-4 whitespace-nowrap border min-w-48">Alamat Pekerjaan Pasangan</th>
+                                <th class="py-3 px-4 whitespace-nowrap border">No KTP Pasangan</th>
+                                <th class="py-3 px-4 whitespace-nowrap border">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="pendaftarBody">
+                            <!-- Table data will be populated dynamically from Firebase -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </main>
+    <!-- js -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.22.0/dist/sweetalert2.all.min.js"></script>
+    <script type="module" src="./src/asset/js/logout_admin.js"></script>
+    <script type="module" src="./src/asset/js/pendaftar.js"></script>
+</body>
+
+</html>
