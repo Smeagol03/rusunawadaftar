@@ -55,7 +55,7 @@ onValue(pendaftaranRef, (snapshot) => {
         <td class="px-3 py-2 border">${data.penghasilan_pasangan}</td>
         <td class="px-3 py-2 border">${data.alamat_pekerjaan_pasangan}</td>
         <td class="px-3 py-2 border">${data.no_ktp_pasangan}</td>
-        <td class="px-3 py-6 border flex flex-col space-y-1">
+        <td class="px-3 py-10 border flex flex-col space-y-1">
           <button class="bg-green-500 hover:bg-green-600 text-white px-2 py-1 rounded-full" onclick="validasi('${key}')">Validasi</button>
           <button class="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded-full" onclick="tolak('${key}')">Tolak</button>
         </td>
