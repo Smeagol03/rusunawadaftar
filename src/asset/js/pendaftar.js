@@ -96,7 +96,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.0/firebas
       };
 
       // Tambahkan ke penghuni
-      const newRef = push(ref(db, 'penghuni'));
+      const newRef = push(penghuniRef);
       await set(newRef, dataWithRoom);
 
       // Hapus dari pendaftaran
