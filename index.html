@@ -30,6 +30,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="./src/output.css">
   <link rel="stylesheet" href="./src/global.css">
+  <link rel="stylesheet" href="./src/asset/aos/aos.css">
   <!-- Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,7 +50,7 @@
           <div class="w-9 h-9 flex items-center justify-center">
             <img src="./src/asset/img/Lambang_Kabupaten_Lombok_Timur.png" alt="Lambang_Kabupaten_Lombok_Timur">
           </div>
-          <span class="text-lg font-semibold">
+          <span class="text-sm md:text-base font-semibold">
             PERKIM KAB. LOTIM
           </span>
         </a>
@@ -151,15 +152,18 @@
   </nav>
 
   <main>
-    <section id="hero" class="text-white body-font py-8">
+    <section id="hero" class="text-white body-font pt-10">
       <div class="container mx-auto flex px-5 min-h-screen items-center justify-center flex-col z-50 relative">
         <div class="text-center lg:w-2/3 w-full">
-          <div class="inline-flex items-center justify-center w-16 h-16 md:w-24 md:h-24 mb-6">
+          <div class="inline-flex items-center justify-center w-16 h-16 md:w-24 md:h-24 mb-6" data-aos="flip-right"
+            data-aos-duration="800">
             <img src="./src/asset/img/Lambang_Kabupaten_Lombok_Timur.png" alt="logo">
           </div>
-          <h1 class="title-font text-lg md:text-2xl mb-4 font-bold text-black">Hunian Layak untuk
+          <h1 class="title-font text-sm md:text-2xl mb-4 font-bold text-black" data-aos="fade-up" data-aos-delay="700">
+            Hunian Layak untuk
             Masyarakat</h1>
-          <p class="mb-4 text-black text-sm md:text-base">Rumah Susun Sewa (Rusunawa) Labuhan Haji hadir
+          <p class="mb-4 text-black text-[10px] md:text-base" data-aos="fade-up" data-aos-delay="1000">Rumah Susun Sewa
+            (Rusunawa) Labuhan Haji hadir
             sebagai
             bentuk
             komitmen pemerintah
@@ -167,10 +171,10 @@
           <div class="flex justify-center">
             <a href="./daftar.html"
               class="inline-flex text-white font-medium bg-amber-600 border-0 py-2 px-6 focus:outline-none hover:bg-amber-700 rounded-full text-sm md:text-lg"
-              aria-label="Daftar Sekarang">Daftar</a>
+              aria-label="Daftar Sekarang" data-aos="fade-right" data-aos-delay="1400">Daftar</a>
             <a href="https://wa.me/6281949788264?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20Rusunawa%20Dinas%20Perumahan%20dan%20Kawasan%20Permukiman%20Kabupaten%20Lombok%20Timur."
               class="ml-4 inline-flex text-white font-medium bg-green-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-700 rounded-full text-sm md:text-lg"
-              target="_blank">Hubungi
+              data-aos="fade-left" data-aos-delay="1400" target="_blank">Hubungi
               Kami</a>
           </div>
         </div>
@@ -182,10 +186,10 @@
       </div>
     </section>
     <!-- fasilitas -->
-    <div id="fasilitas" class="max-w-4xl mx-auto px-4 py-16 text-center">
+    <!-- <div id="fasilitas" class="max-w-4xl mx-auto px-4 py-16 text-center">
       <h1 class="text-4xl font-bold text-gray-800 mb-4">Fasilitas</h1>
       <p class="text-gray-600 text-lg">Fasilitas Hunian Lengkap untuk Kenyamanan Bersama</p>
-      <!-- Fasilitas -->
+
       <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="bg-white p-6 rounded-2xl shadow-lg">
           <svg class="w-8 h-8 text-blue-500 mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -242,21 +246,22 @@
           aria-label="Daftar Sekarang">Daftar
           Sekarang</a>
       </div>
-    </div>
+    </div> -->
     <!-- About Us Section -->
     <section id="tentang"
       class="py-16 lg:py-24 bg-gradient-to-br from-amber-100 via-white to-amber-200 relative overflow-hidden">
       <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
         <div class="text-center mb-16">
-          <div class="inline-flex items-center justify-center w-16 h-16 mb-6">
+          <div class="inline-flex items-center justify-center w-16 h-16 mb-6" data-aos="flip-left"
+            data-aos-duration="500">
             <img src="./src/asset/img/Lambang_Kabupaten_Lombok_Timur.png" alt="logo">
           </div>
-          <h2 class="text-sm md:text-lg font-bold text-gray-900 mb-4">
+          <h2 class="text-sm md:text-lg font-bold text-gray-900 mb-4" data-aos="fade-up">
             DINAS PERKIM KABUPATEN LOMBOK TIMUR
           </h2>
-          <div class="w-24 h-1 bg-gradient-to-r from-yellow-300 to-yellow-500 mx-auto mb-6"></div>
-          <p class="text-sm md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <div class="w-24 h-1 bg-gradient-to-r from-yellow-300 to-yellow-500 mx-auto mb-6" data-aos="fade-up"></div>
+          <p class="text-sm md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed" data-aos="fade-up">
             Dinas Perumahan dan Kawasan Permukiman Kabupaten Lombok Timur berkomitmen untuk mewujudkan
             hunian layak dan kawasan permukiman yang berkelanjutan bagi seluruh masyarakat.
           </p>
@@ -265,7 +270,8 @@
 
         <!-- Vision -->
         <div class="mb-10 mx-auto md:px-36">
-          <div class="flex items-center mb-6 bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-xl shadow-sm">
+          <div class="flex items-center mb-6 bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-xl shadow-sm"
+            data-aos="fade-up">
             <div
               class="w-16 h-16 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-2xl flex items-center justify-center mr-4 shadow-lg transform rotate-3">
               <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -277,7 +283,8 @@
             </div>
             <h3 class="text-2xl font-bold text-gray-900">Visi</h3>
           </div>
-          <p class="bg-white rounded-lg shadow-lg p-4 text-sm md:text-lg text-center text-gray-700 leading-relaxed">
+          <p class="bg-yellow-100 rounded-lg shadow-lg p-4 text-sm md:text-lg text-center text-gray-700 leading-relaxed"
+            data-aos="fade-up">
             TERWUJUDNYA INFRASTRUKTUR PERUMAHAN DAN PERMUKIMAN DAN PERUMAHAN RAKYAT YANG HANDAL
             DALAM MENDUKUNG INDONESIA YANG BERDAULAT, MANDIRI, DAN BERK EPRIBADIAN BERLANDASKAN
             GOTONG ROYONG
@@ -286,7 +293,8 @@
 
         <!-- Mission -->
         <div class="mb-10 mx-auto md:px-36">
-          <div class="flex items-center mb-6 bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-xl shadow-sm">
+          <div class="flex items-center mb-6 bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-xl shadow-sm"
+            data-aos="fade-up">
             <div
               class="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center mr-4 shadow-lg transform rotate-3">
               <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -298,40 +306,40 @@
               Misi</h3>
           </div>
           <ul class="space-y-4">
-            <li
-              class="group flex items-start p-4 bg-white rounded-xl shadow-md transform hover:scale-105 transition-all duration-300">
-              <p class="text-sm md:text-base text-gray-700 leading-relaxed">Mempercepat pembangunan infrastruktur
+            <li class="group flex items-start p-4 bg-yellow-100 rounded-xl shadow-md" data-aos="fade-up">
+              <p class="text-sm md:text-base text-gray-700 leading-relaxed">Mempercepat pembangunan
+                infrastruktur
                 sumber daya air termasuk sumber daya maritim untuk mendukung kedaulatan pangan, ketahanan air, dan
                 ketahanan energi, guna menggerakkan sektor-sektor strategis ekonomi domestik dalam rangka
                 kemandirian ekonomi.</p>
             </li>
 
-            <li
-              class="group flex items-start p-4 bg-white rounded-xl shadow-md transform hover:scale-105 transition-all duration-300">
-              <p class="text-sm md:text-base text-gray-700 leading-relaxed">Mempercepat pembangunan infrastruktur
+            <li class="group flex items-start p-4 bg-yellow-100 rounded-xl shadow-md" data-aos="fade-up">
+              <p class="text-sm md:text-base text-gray-700 leading-relaxed">Mempercepat pembangunan
+                infrastruktur
                 jalan untuk mendukung konektivitas guna meningkatkan produktivitas, efisiensi, dan pelayanan sistem
                 logistik nasional bagi daya saing bangsa di lingkup global yang berfokus pada keterpaduan
                 konektivitas daratan dan maritim.</p>
             </li>
 
-            <li
-              class="group flex items-start p-4 bg-white rounded-xl shadow-md transform hover:scale-105 transition-all duration-300">
-              <p class="text-sm md:text-base text-gray-700 leading-relaxed">Mempercepat pembangunan infrastruktur
+            <li class="group flex items-start p-4 bg-yellow-100 rounded-xl shadow-md" data-aos="fade-up">
+              <p class="text-sm md:text-base text-gray-700 leading-relaxed">Mempercepat pembangunan
+                infrastruktur
                 permukiman dan perumahan rakyat untuk mendukung layanan infrastruktur dasar yang layak dalam rangka
                 mewujudkan kualitas hidup manusia Indonesia sejalan dengan prinsip infrastruktur untuk semua.</p>
             </li>
 
-            <li
-              class="group flex items-start p-4 bg-white rounded-xl shadow-md transform hover:scale-105 transition-all duration-300">
-              <p class="text-sm md:text-base text-gray-700 leading-relaxed">Mempercepat pembangunan infrastruktur
+            <li class="group flex items-start p-4 bg-yellow-100 rounded-xl shadow-md" data-aos="fade-up">
+              <p class="text-sm md:text-base text-gray-700 leading-relaxed">Mempercepat pembangunan
+                infrastruktur
                 Perumahan dan Permukiman Rakyat secara terpadu dari pinggiran untuk mendukung keseimbangan
                 pembangunan antar daerah, terutama di kawasan tertinggal, kawasan perbatasan, dan kawasan pedesaan,
                 dalam kerangka NKRI.</p>
             </li>
 
-            <li
-              class="group flex items-start p-4 bg-white rounded-xl shadow-md transform hover:scale-105 transition-all duration-300">
-              <p class="text-sm md:text-base text-gray-700 leading-relaxed">Meningkatkan tata kelola sumber daya
+            <li class="group flex items-start p-4 bg-yellow-100 rounded-xl shadow-md" data-aos="fade-up">
+              <p class="text-sm md:text-base text-gray-700 leading-relaxed">Meningkatkan tata kelola
+                sumber daya
                 organisasi untuk mendukung fungsi manajemen meliputi perencanaan yang terpadu, pengorganisasian yang
                 efisien, pelaksanaan yang tepat, dan pengawasan yang ketat.</p>
             </li>
@@ -339,11 +347,12 @@
         </div>
 
         <!-- Statistics/Values Section -->
-        <div class="pt-20">
-          <div class="grid md:grid-cols-2 gap-8 justify-items-center">
+        <div class="pt-10">
+          <div class="flex flex-col md:flex-row justify-center gap-6 md:gap-8">
             <!-- Value 1 -->
             <div
-              class="bg-white p-8 rounded-lg md:max-w-1/2 text-center group hover:transform hover:scale-105 transition-all duration-300">
+              class="bg-yellow-200 p-8 rounded-lg md:max-w-1/2 text-center group hover:transform hover:scale-105 transition-all duration-300"
+              data-aos="fade-up">
               <div
                 class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl">
                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -358,7 +367,8 @@
 
             <!-- Value 2 -->
             <div
-              class="bg-white p-8 rounded-lg md:max-w-1/2 text-center group hover:transform hover:scale-105 transition-all duration-300">
+              class="bg-yellow-200 p-8 rounded-lg md:max-w-1/2 text-center group hover:transform hover:scale-105 transition-all duration-300"
+              data-aos="fade-up">
               <div
                 class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl">
                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -373,7 +383,8 @@
 
             <!-- Value 3 -->
             <div
-              class="bg-white p-8 rounded-lg md:max-w-1/2 text-center group hover:transform hover:scale-105 transition-all duration-300">
+              class="bg-yellow-200 p-8 rounded-lg md:max-w-1/2 text-center group hover:transform hover:scale-105 transition-all duration-300"
+              data-aos="fade-up">
               <div
                 class="w-16 h-16 bg-gradient-to-br from-yellow-300 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl">
                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -388,7 +399,8 @@
 
             <!-- Value 4 -->
             <div
-              class="bg-white p-8 rounded-lg md:max-w-1/2 text-center group hover:transform hover:scale-105 transition-all duration-300">
+              class="bg-yellow-200 p-8 rounded-lg md:max-w-1/2 text-center group hover:transform hover:scale-105 transition-all duration-300"
+              data-aos="fade-up">
               <div
                 class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl">
                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -437,7 +449,6 @@
   </main>
   <!-- Footer -->
   <footer class="relative bg-white border-t-4 border-yellow-600 overflow-hidden">
-
     <div class="relative z-10 max-w-7xl mx-auto px-4 py-12">
       <!-- Main Footer Content -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
@@ -632,6 +643,8 @@
   </footer>
   <!-- js -->
   <script src="./src/asset/js/nav.js"></script>
+  <script src="./src/asset/aos/aos.js"></script>
+  <script src="./src/asset/js/aos_init.js"></script>
   <script src="./src/asset/js/pesan_wa.js"></script>
   <!-- SweetAlert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.21.2/dist/sweetalert2.all.min.js"></script>
