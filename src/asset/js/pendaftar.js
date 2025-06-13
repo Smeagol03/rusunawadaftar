@@ -27,44 +27,62 @@ const penghuniRef = ref(db, "penghuni");
 const body = document.getElementById("pendaftarBody");
 
 let counter = 1;
+
 // Tampilkan data pendaftar
 onValue(pendaftaranRef, (snapshot) => {
   body.innerHTML = "";
   snapshot.forEach((childSnap) => {
     const data = childSnap.val();
     const key = childSnap.key;
+    const jumlahKeluarga = data.keluarga?.length || 1;
 
-    const row = document.createElement("tr");
-    row.innerHTML = `
-        <td class="px-3 py-2 border text-center">${counter}</td>
-        <td class="px-3 py-2 border">${data.waktu}</td>
-        <td class="px-3 py-2 border">${data.nama}</td>
-        <td class="px-3 py-2 border">${data.agama}</td>
-        <td class="px-3 py-2 border">${data.alamat}</td>
-        <td class="px-3 py-2 border">${data.warga_negara}</td>
-        <td class="px-3 py-2 border">${data.tempat_lahir}</td>
-        <td class="px-3 py-2 border">${data.tanggal_lahir}</td>
-        <td class="px-3 py-2 border">${data.no_ktp}</td>
-        <td class="px-3 py-2 border">${data.status_tempat_tinggal}</td>
-        <td class="px-3 py-2 border">${data.jumlah_keluarga1 || "-"}</td>
-        <td class="px-3 py-2 border">${data.jumlah_keluarga2 || "-"}</td>
-        <td class="px-3 py-2 border">${data.jumlah_keluarga3 || "-"}</td>
-        <td class="px-3 py-2 border">${data.jumlah_keluarga4 || "-"}</td>
-        <td class="px-3 py-2 border">${data.status_perkawinan}</td>
-        <td class="px-3 py-2 border">${data.pekerjaan}</td>
-        <td class="px-3 py-2 border">${data.penghasilan}</td>
-        <td class="px-3 py-2 border">${data.nama_tempat_kerja}</td>
-        <td class="px-3 py-2 border">${data.alamat_pekerjaan}</td>
-        <td class="px-3 py-2 border">${data.pekerjaan_pasangan}</td>
-        <td class="px-3 py-2 border">${data.penghasilan_pasangan}</td>
-        <td class="px-3 py-2 border">${data.alamat_pekerjaan_pasangan}</td>
-        <td class="px-3 py-2 border">${data.no_ktp_pasangan}</td>
-        <td class="px-3 py-10 border flex flex-col space-y-1">
-          <button class="bg-green-500 hover:bg-green-600 text-white px-2 py-1 rounded-full" onclick="validasi('${key}')">Validasi</button>
-          <button class="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded-full" onclick="tolak('${key}')">Tolak</button>
-        </td>
+    data.keluarga?.forEach((anggota, index) => {
+      const row = document.createElement("tr");
+      row.setAttribute("data-id", `data-${key}`);
+
+      if (index === 0) {
+        row.innerHTML += `
+          <td class="px-3 py-2 border text-center" rowspan="${jumlahKeluarga}">${counter}</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.waktu}</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.nama}</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.agama}</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.alamat}</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.warga_negara}</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.tempat_lahir}</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.tanggal_lahir}</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.no_ktp}</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.status_tempat_tinggal}</td>
+        `;
+      }
+
+      row.innerHTML += `
+        <td class="px-3 py-2 border">${anggota.nama}</td>
+        <td class="px-3 py-2 border">${anggota.umur}</td>
+        <td class="px-3 py-2 border">${anggota.hubungan}</td>
+        <td class="px-3 py-2 border">${anggota.keterangan}</td>
       `;
-    body.appendChild(row);
+
+      if (index === 0) {
+        row.innerHTML += `
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.status_perkawinan}</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.pekerjaan}</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.penghasilan}</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.nama_tempat_kerja}</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.alamat_pekerjaan}</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.pekerjaan_pasangan}</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.penghasilan_pasangan}</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.alamat_pekerjaan_pasangan}</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.no_ktp_pasangan}</td>
+          <td class="px-3 text-center border" rowspan="${jumlahKeluarga}">
+            <button class="bg-green-500 hover:bg-green-600 text-white w-full rounded-full px-2 py-1 mb-1" onclick="validasi('${key}')">Validasi</button>
+            <button class="bg-red-500 hover:bg-red-600 text-white w-full rounded-full px-2 py-1" onclick="tolak('${key}')">Tolak</button>
+          </td>
+        `;
+      }
+
+      body.appendChild(row);
+    });
+
     counter++;
   });
 });

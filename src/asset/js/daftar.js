@@ -52,10 +52,32 @@ document
       status_tempat_tinggal: escapeInput(
         form.status_tempat_tinggal?.value || ""
       ),
-      jumlah_keluarga1: escapeInput(form.jumlah_keluarga1?.value || ""),
-      jumlah_keluarga2: escapeInput(form.jumlah_keluarga2?.value || ""),
-      jumlah_keluarga3: escapeInput(form.jumlah_keluarga3?.value || ""),
-      jumlah_keluarga4: escapeInput(form.jumlah_keluarga4?.value || ""),
+      keluarga: [
+        {
+          nama: escapeInput(form.nama_keluarga1?.value || ""),
+          umur: escapeInput(form.umur_keluarga1?.value || ""),
+          hubungan: escapeInput(form.hubungan_keluarga1?.value || ""),
+          keterangan: escapeInput(form.keterangan_keluarga1?.value || ""),
+        },
+        {
+          nama: escapeInput(form.nama_keluarga2?.value || ""),
+          umur: escapeInput(form.umur_keluarga2?.value || ""),
+          hubungan: escapeInput(form.hubungan_keluarga2?.value || ""),
+          keterangan: escapeInput(form.keterangan_keluarga2?.value || ""),
+        },
+        {
+          nama: escapeInput(form.nama_keluarga3?.value || ""),
+          umur: escapeInput(form.umur_keluarga3?.value || ""),
+          hubungan: escapeInput(form.hubungan_keluarga3?.value || ""),
+          keterangan: escapeInput(form.keterangan_keluarga3?.value || ""),
+        },
+        {
+          nama: escapeInput(form.nama_keluarga4?.value || ""),
+          umur: escapeInput(form.umur_keluarga4?.value || ""),
+          hubungan: escapeInput(form.hubungan_keluarga4?.value || ""),
+          keterangan: escapeInput(form.keterangan_keluarga4?.value || ""),
+        },
+      ],
       status_perkawinan: escapeInput(form.status_perkawinan?.value || ""),
       pekerjaan: escapeInput(form.pekerjaan?.value || ""),
       penghasilan: escapeInput(form.penghasilan?.value || ""),
