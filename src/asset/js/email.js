@@ -1,6 +1,6 @@
 (function () {
   emailjs.init({
-    publicKey: "Bu7YfN-RyEHeHgNu7",
+    publicKey: "taruh_disini",
   });
 })();
 
@@ -9,7 +9,7 @@ document
   .addEventListener("submit", function (e) {
     e.preventDefault();
 
-    emailjs.sendForm("service_zgwei5g", "template_2olmd4n", this).then(
+    emailjs.sendForm("taruh_disini", "taruh disini", this).then(
       () => {
         this.reset(); // hanya reset form jika sukses
       },
