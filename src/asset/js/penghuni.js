@@ -4,6 +4,8 @@ import {
   ref,
   onValue,
   remove,
+  get,
+  update,
 } from "https://www.gstatic.com/firebasejs/11.9.0/firebase-database.js";
 
 // Konfigurasi Firebase
@@ -21,6 +23,11 @@ const firebaseConfig = {
 // Inisialisasi Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+
+//buka tutup modal
+function bukaModalEdit() {
+  document.getElementById("modal-edit").classList.remove("hidden");
+}
 
 // Referensi ke database penghuni
 const penghuniRef = ref(db, "penghuni");
@@ -109,7 +116,8 @@ onValue(penghuniRef, (snapshot) => {
             data.no_ktp_pasangan || "-"
           }</td>
             <td class="px-3 text-center border" rowspan="${jumlahKeluarga}">
-              <button class="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded-full" onclick="hapus('${key}')">Hapus</button>
+              <button class="w-full bg-red-500 hover:bg-red-600 text-white px-2 py-1 mb-1 rounded-full" onclick="hapus('${key}')">Hapus</button>
+              <button class="w-full bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded-full" onclick="edit('${key}')">Edit</button>
             </td>
           `;
         }
@@ -145,13 +153,171 @@ onValue(penghuniRef, (snapshot) => {
         }</td>
         <td class="px-3 py-2 border">${data.no_ktp_pasangan || "-"}</td>
         <td class="px-3 text-center border">
-          <button class="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded-full" onclick="hapus('${key}')">Hapus</button>
+          <button class="w-full bg-red-500 hover:bg-red-600 text-white px-2 py-1 mb-1 rounded-full" onclick="hapus('${key}')">Hapus</button>
+          <button class="w-full bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded-full" onclick="edit('${key}')">Edit</button>
         </td>
       `;
       tabel.appendChild(row);
     }
     no++;
   });
+});
+
+// Fungsi untuk membuka modal edit
+window.edit = function (key) {
+  const itemRef = ref(db, `penghuni/${key}`);
+  get(itemRef).then((snapshot) => {
+    if (snapshot.exists()) {
+      const data = snapshot.val();
+
+      // Isi form edit dengan data dari Firebase
+      document.getElementById("edit_nama").value = data.nama || "";
+      document.getElementById("edit_nomor_kamar").value =
+        data.nomor_kamar || "";
+      document.getElementById("edit_agama").value = data.agama || "";
+      document.getElementById("edit_alamat").value = data.alamat || "";
+      document.getElementById("edit_warga_negara").value =
+        data.warga_negara || "";
+      document.getElementById("edit_tempat_lahir").value =
+        data.tempat_lahir || "";
+      document.getElementById("edit_tanggal_lahir").value =
+        data.tanggal_lahir || "";
+      document.getElementById("edit_no_ktp").value = data.no_ktp || "";
+      document.getElementById("edit_status_tempat_tinggal").value =
+        data.status_tempat_tinggal || "";
+      document.getElementById("edit_status_perkawinan").value =
+        data.status_perkawinan || "";
+      document.getElementById("edit_pekerjaan").value = data.pekerjaan || "";
+      document.getElementById("edit_penghasilan").value =
+        data.penghasilan || "";
+      document.getElementById("edit_nama_tempat_kerja").value =
+        data.nama_tempat_kerja || "";
+      document.getElementById("edit_alamat_pekerjaan").value =
+        data.alamat_pekerjaan || "";
+      document.getElementById("edit_pekerjaan_pasangan").value =
+        data.pekerjaan_pasangan || "";
+      document.getElementById("edit_penghasilan_pasangan").value =
+        data.penghasilan_pasangan || "";
+      document.getElementById("edit_alamat_pekerjaan_pasangan").value =
+        data.alamat_pekerjaan_pasangan || "";
+      document.getElementById("edit_no_ktp_pasangan").value =
+        data.no_ktp_pasangan || "";
+
+      // Tampilkan data keluarga
+      const keluargaContainer = document.getElementById(
+        "edit_anggota_keluarga"
+      );
+      keluargaContainer.innerHTML = ""; // Bersihkan dulu
+
+      const keluarga = data.keluarga || [];
+
+      for (let i = 0; i < 4; i++) {
+        const anggota = keluarga[i] || {
+          nama: "",
+          umur: "",
+          hubungan: "",
+          keterangan: "",
+        };
+
+        const keluargaHTML = `
+                                <div class="border p-3 rounded bg-gray-50 space-y-2">
+                                  <label class="block text-sm font-semibold">Nama Keluarga ${
+                                    i + 1
+                                  }</label>
+                                  <input type="text" class="w-full p-1 border rounded" name="edit_nama_keluarga${
+                                    i + 1
+                                  }" value="${anggota.nama}">
+
+                                  <label class="block text-sm font-semibold">Umur</label>
+                                  <input type="number" class="w-full p-1 border rounded" name="edit_umur_keluarga${
+                                    i + 1
+                                  }" value="${anggota.umur}">
+
+                                  <label class="block text-sm font-semibold">Hubungan</label>
+                                  <input type="text" class="w-full p-1 border rounded" name="edit_hubungan_keluarga${
+                                    i + 1
+                                  }" value="${anggota.hubungan}">
+
+                                  <label class="block text-sm font-semibold">Keterangan</label>
+                                  <input type="text" class="w-full p-1 border rounded" name="edit_keterangan_keluarga${
+                                    i + 1
+                                  }" value="${anggota.keterangan}">
+                                </div>
+                              `;
+        keluargaContainer.insertAdjacentHTML("beforeend", keluargaHTML);
+      }
+
+      // Simpan key agar bisa digunakan saat menyimpan
+      document.getElementById("form-edit").dataset.key = key;
+
+      // Tampilkan modal edit
+      bukaModalEdit();
+    } else {
+      Swal.fire("Data tidak ditemukan", "", "error");
+    }
+  });
+};
+
+// submit
+document.getElementById("simpanEdit").addEventListener("click", function () {
+  const updateData = {
+    nama: document.getElementById("edit_nama").value,
+    nomor_kamar: document.getElementById("edit_nomor_kamar").value,
+    agama: document.getElementById("edit_agama").value,
+    alamat: document.getElementById("edit_alamat").value,
+    warga_negara: document.getElementById("edit_warga_negara").value,
+    tempat_lahir: document.getElementById("edit_tempat_lahir").value,
+    tanggal_lahir: document.getElementById("edit_tanggal_lahir").value,
+    no_ktp: document.getElementById("edit_no_ktp").value,
+    status_tempat_tinggal: document.getElementById("edit_status_tempat_tinggal")
+      .value,
+    status_perkawinan: document.getElementById("edit_status_perkawinan").value,
+    pekerjaan: document.getElementById("edit_pekerjaan").value,
+    penghasilan: document.getElementById("edit_penghasilan").value,
+    nama_tempat_kerja: document.getElementById("edit_nama_tempat_kerja").value,
+    alamat_pekerjaan: document.getElementById("edit_alamat_pekerjaan").value,
+    pekerjaan_pasangan: document.getElementById("edit_pekerjaan_pasangan")
+      .value,
+    penghasilan_pasangan: document.getElementById("edit_penghasilan_pasangan")
+      .value,
+    alamat_pekerjaan_pasangan: document.getElementById(
+      "edit_alamat_pekerjaan_pasangan"
+    ).value,
+    no_ktp_pasangan: document.getElementById("edit_no_ktp_pasangan").value,
+  };
+
+  // Ambil ulang array keluarga
+  const keluarga = [];
+  for (let i = 1; i <= 4; i++) {
+    keluarga.push({
+      nama:
+        document.querySelector(`[name="edit_nama_keluarga${i}"]`)?.value || "",
+      umur:
+        document.querySelector(`[name="edit_umur_keluarga${i}"]`)?.value || "",
+      hubungan:
+        document.querySelector(`[name="edit_hubungan_keluarga${i}"]`)?.value ||
+        "",
+      keterangan:
+        document.querySelector(`[name="edit_keterangan_keluarga${i}"]`)
+          ?.value || "",
+    });
+  }
+
+  updateData.keluarga = keluarga;
+
+  const key = document.getElementById("form-edit").dataset.key;
+
+  console.log("Key:", key);
+  console.log("Data yang akan diupdate:", updateData);
+
+  update(ref(db, `penghuni/${key}`), updateData)
+    .then(() => {
+      Swal.fire("Berhasil", "Data berhasil diperbarui", "success");
+    })
+    .catch((error) => {
+      console.error("Gagal update data:", error);
+      Swal.fire("Gagal", "Gagal menyimpan perubahan", "error");
+    });
 });
 
 // Fungsi hapus data penghuni
