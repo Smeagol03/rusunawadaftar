@@ -38,21 +38,7 @@ onValue(penghuniRef, (snapshot) => {
   tabel.innerHTML = ""; // Kosongkan dulu
   let no = 1;
 
-  // Ubah snapshot ke array dan urutkan berdasarkan nomor kamar
-  const sortedChildren = [];
-  snapshot.forEach((child) => sortedChildren.push(child));
-  sortedChildren.sort((a, b) => {
-    const roomA = a.val().nomor_kamar || "";
-    const roomB = b.val().nomor_kamar || "";
-
-    const [lantaiA, kamarA] = roomA.split("-").map(Number);
-    const [lantaiB, kamarB] = roomB.split("-").map(Number);
-
-    if (lantaiA === lantaiB) return kamarA - kamarB;
-    return lantaiA - lantaiB;
-  });
-
-  sortedChildren.forEach((child) => {
+  snapshot.forEach((child) => {
     const data = child.val();
     const key = child.key;
     const keluarga = data.keluarga || [];
