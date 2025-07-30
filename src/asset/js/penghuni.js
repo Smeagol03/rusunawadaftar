@@ -204,6 +204,7 @@ window.edit = function (key) {
         data.penghasilan_pasangan || "";
       document.getElementById("edit_alamat_pekerjaan_pasangan").value =
         data.alamat_pekerjaan_pasangan || "";
+      document.getElementById("edit_no_hp").value = data.no_hp_pasangan || "";
       document.getElementById("edit_no_ktp_pasangan").value =
         data.no_ktp_pasangan || "";
 
@@ -273,6 +274,7 @@ document.getElementById("simpanEdit").addEventListener("click", function () {
     tempat_lahir: document.getElementById("edit_tempat_lahir").value,
     tanggal_lahir: document.getElementById("edit_tanggal_lahir").value,
     no_ktp: document.getElementById("edit_no_ktp").value,
+    no_hp: document.getElementById("edit_no_hp").value,
     status_tempat_tinggal: document.getElementById("edit_status_tempat_tinggal")
       .value,
     status_perkawinan: document.getElementById("edit_status_perkawinan").value,
