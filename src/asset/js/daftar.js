@@ -49,6 +49,7 @@ document
       tempat_lahir: escapeInput(form.tempat_lahir?.value || ""),
       tanggal_lahir: escapeInput(form.tanggal_lahir?.value || ""),
       no_ktp: escapeInput(form.no_ktp.value),
+      no_hp: escapeInput(form.no_hp?.value || ""),
       status_tempat_tinggal: escapeInput(
         form.status_tempat_tinggal?.value || ""
       ),

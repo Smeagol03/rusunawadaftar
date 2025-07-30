@@ -43,15 +43,36 @@ onValue(pendaftaranRef, (snapshot) => {
       if (index === 0) {
         row.innerHTML += `
           <td class="px-3 py-2 border text-center" rowspan="${jumlahKeluarga}">${counter}</td>
-          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.waktu}</td>
-          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.nama}</td>
-          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.agama}</td>
-          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.alamat}</td>
-          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.warga_negara}</td>
-          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.tempat_lahir}</td>
-          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.tanggal_lahir}</td>
-          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.no_ktp}</td>
-          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${data.status_tempat_tinggal}</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${
+          data.waktu
+        }</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${
+          data.nama
+        }</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${
+          data.agama
+        }</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${
+          data.alamat
+        }</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${
+          data.warga_negara
+        }</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${
+          data.tempat_lahir
+        }</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${
+          data.tanggal_lahir
+        }</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${
+          data.no_ktp
+        }</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${
+          data.no_hp || "-"
+        }</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${
+          data.status_tempat_tinggal
+        }</td>
         `;
       }
 

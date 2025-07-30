@@ -75,6 +75,9 @@ onValue(penghuniRef, (snapshot) => {
             <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${
             data.no_ktp || "-"
           }</td>
+          <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${
+            data.no_hp || "-"
+          }</td>
             <td class="px-3 py-2 border" rowspan="${jumlahKeluarga}">${
             data.status_tempat_tinggal || "-"
           }</td>
@@ -136,6 +139,7 @@ onValue(penghuniRef, (snapshot) => {
         <td class="px-3 py-2 border">${data.tempat_lahir || "-"}</td>
         <td class="px-3 py-2 border">${data.tanggal_lahir || "-"}</td>
         <td class="px-3 py-2 border">${data.no_ktp || "-"}</td>
+        <td class="px-3 py-2 border">${data.no_hp || "-"}</td>
         <td class="px-3 py-2 border">${data.status_tempat_tinggal || "-"}</td>
         <td class="px-3 py-2 border">-</td>
         <td class="px-3 py-2 border">-</td>
